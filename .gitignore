@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Environment / secrets
+.env
+backend/.env
+
+# Databases (local development)
+*.db
+*.sqlite3
+
+# OS / editor
+.DS_Store
+.vscode/

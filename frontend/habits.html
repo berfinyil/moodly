@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habits – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="nav-brand">📖 Journal</span>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="journal.html">Heute</a>
+            <a href="calendar.html">Kalender</a>
+            <a href="habits.html" class="active">Habits</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="achievements.html">Achievements</a>
+            <button id="logout-button" class="nav-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Habits</h1>
+        <p class="muted" id="habit-progress"></p>
+
+        <section class="card">
+            <h2>Heute abhaken</h2>
+            <ul class="habit-list" id="habit-list">
+                <li class="muted">Lade Habits …</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Neuer Habit</h2>
+            <form id="habit-form" class="form">
+                <label>
+                    Name
+                    <input type="text" name="name" required maxlength="100"
+                           placeholder="z. B. Lesen, Meditation, 2 Liter Wasser">
+                </label>
+                <div class="form-row">
+                    <label>
+                        Zielwert <span class="muted">(optional)</span>
+                        <input type="number" name="target_value" min="1"
+                               placeholder="z. B. 20">
+                    </label>
+                    <label>
+                        Einheit <span class="muted">(optional)</span>
+                        <input type="text" name="unit" maxlength="30"
+                               placeholder="z. B. Minuten">
+                    </label>
+                </div>
+                <button type="submit" class="button button-primary">
+                    Habit anlegen
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initHabitsPage } from "./js/habits.js";
+        initHabitsPage();
+    </script>
+</body>
+</html>

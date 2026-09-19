@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="nav-brand">📖 Journal</span>
+        <div class="nav-links">
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="journal.html">Heute</a>
+            <a href="calendar.html">Kalender</a>
+            <a href="habits.html">Habits</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="achievements.html">Achievements</a>
+            <button id="logout-button" class="nav-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1 id="greeting">Hallo 👋</h1>
+        <p class="muted" id="today-date"></p>
+
+        <section class="card-grid">
+            <div class="card stat-card">
+                <span class="stat-label">Aktuelle Streak</span>
+                <span class="stat-value" id="stat-streak">–</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Stimmung heute</span>
+                <span class="stat-value" id="stat-mood">–</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Journal diese Woche</span>
+                <span class="stat-value" id="stat-week">–</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Sport diese Woche</span>
+                <span class="stat-value" id="stat-sport">–</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Habits heute</span>
+                <span class="stat-value" id="stat-habits">–</span>
+            </div>
+        </section>
+
+        <section class="card today-card summary-card">
+            <h2>Wochenrückblick</h2>
+            <p class="muted" id="weekly-summary">
+                Lass dir deine Woche zusammenfassen.
+            </p>
+            <button class="button" id="weekly-summary-button" type="button">
+                Wochenrückblick erstellen
+            </button>
+        </section>
+
+        <section class="card today-card">
+            <h2 id="today-status">Wie geht es dir heute?</h2>
+            <a class="button button-primary" href="journal.html" id="today-link">
+                Heutigen Eintrag öffnen
+            </a>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initDashboard } from "./js/dashboard.js";
+        initDashboard();
+    </script>
+</body>
+</html>

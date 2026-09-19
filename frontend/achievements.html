@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="nav-brand">📖 Journal</span>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="journal.html">Heute</a>
+            <a href="calendar.html">Kalender</a>
+            <a href="habits.html">Habits</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="achievements.html" class="active">Achievements</a>
+            <button id="logout-button" class="nav-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Achievements</h1>
+        <p class="muted" id="streak-line"></p>
+
+        <section class="achievement-grid" id="achievement-grid">
+            <p class="muted">Lade Achievements …</p>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initAchievementsPage } from "./js/achievements.js";
+        initAchievementsPage();
+    </script>
+</body>
+</html>

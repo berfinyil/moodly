@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heute – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="nav-brand">📖 Journal</span>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="journal.html" class="active">Heute</a>
+            <a href="calendar.html">Kalender</a>
+            <a href="habits.html">Habits</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="achievements.html">Achievements</a>
+            <button id="logout-button" class="nav-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1 id="entry-date-heading"></h1>
+
+        <form id="journal-form" class="journal-form">
+
+            <section class="card">
+                <h2>Wie geht es dir heute?</h2>
+                <div class="mood-picker" id="mood-picker">
+                    <button type="button" data-mood="1" title="sehr schlecht">😢</button>
+                    <button type="button" data-mood="2" title="schlecht">😕</button>
+                    <button type="button" data-mood="3" title="neutral">😐</button>
+                    <button type="button" data-mood="4" title="gut">🙂</button>
+                    <button type="button" data-mood="5" title="sehr gut">😄</button>
+                </div>
+                <label>
+                    Was hat deine Stimmung heute beeinflusst?
+                    <textarea name="mood_influence" rows="2"></textarea>
+                </label>
+            </section>
+
+            <section class="card">
+                <h2>Welche Emotionen fühlst du?</h2>
+                <div class="emotion-chips" id="emotion-chips">
+                    <span class="muted">Lade Emotionen …</span>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Energie, Stress &amp; Schlaf</h2>
+                <label class="slider-label">
+                    Energie <output id="energy-output">3</output>/5
+                    <input type="range" name="energy_level" min="1" max="5" value="3">
+                </label>
+                <label class="slider-label">
+                    Stress <output id="stress-output">3</output>/5
+                    <input type="range" name="stress_level" min="1" max="5" value="3">
+                </label>
+                <label class="slider-label">
+                    Schlafqualität <output id="sleep-output">3</output>/5
+                    <input type="range" name="sleep_quality" min="1" max="5" value="3">
+                </label>
+            </section>
+
+            <section class="card">
+                <h2>Aktivitäten</h2>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="did_sport"> Sport gemacht
+                </label>
+                <div id="sport-details" class="indent hidden">
+                    <label>
+                        Sportart
+                        <input type="text" name="sport_type" maxlength="100" placeholder="z. B. Fitness, Yoga, Laufen">
+                    </label>
+                    <label>
+                        Dauer (Minuten)
+                        <input type="number" name="sport_duration_minutes" min="0" step="5">
+                    </label>
+                </div>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="had_sex"> Sex
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="cried"> Heute geweint
+                </label>
+            </section>
+
+            <section class="card">
+                <h2>Gesundheit</h2>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="had_headache"> Kopfschmerzen
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="had_pain"> Andere Schmerzen
+                </label>
+                <div id="pain-details" class="indent hidden">
+                    <label class="slider-label">
+                        Intensität <output id="pain-output">0</output>/10
+                        <input type="range" name="pain_level" min="0" max="10" value="0">
+                    </label>
+                    <label>
+                        Ort der Schmerzen
+                        <input type="text" name="pain_location" maxlength="200" placeholder="z. B. Nacken">
+                    </label>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Notizen &amp; Reflexion</h2>
+                <p class="daily-question" id="daily-question"></p>
+                <label>
+                    Notizen
+                    <textarea name="notes" rows="5" placeholder="Wie war dein Tag?"></textarea>
+                </label>
+                <label>
+                    Wofür bist du heute dankbar?
+                    <textarea name="gratitude" rows="2"></textarea>
+                </label>
+                <label>
+                    Was war heute besonders schön?
+                    <textarea name="positive_event" rows="2"></textarea>
+                </label>
+                <label>
+                    Was hat dich heute belastet?
+                    <textarea name="negative_event" rows="2"></textarea>
+                </label>
+                <label>
+                    Tagesreflexion
+                    <textarea name="reflection" rows="3" placeholder="Was hast du gelernt? Was möchtest du morgen anders machen?"></textarea>
+                </label>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit" class="button button-primary button-large">
+                    Speichern
+                </button>
+                <span class="muted" id="save-status"></span>
+            </div>
+        </form>
+    </main>
+
+    <script type="module">
+        import { initJournalPage } from "./js/journal.js";
+        initJournalPage();
+    </script>
+</body>
+</html>

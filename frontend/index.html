@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <main class="landing">
+        <h1>🌤️ Moodly</h1>
+        <p>Dein persönliches Journal für Stimmung, Gewohnheiten und Reflexion.</p>
+
+        <p id="api-status" class="api-status">Prüfe Verbindung zum Server …</p>
+
+        <div class="landing-actions">
+            <a class="button button-primary" href="login.html">Login</a>
+            <a class="button" href="register.html">Registrieren</a>
+        </div>
+    </main>
+
+    <script type="module">
+        import { checkHealth } from "./js/api.js";
+
+        const statusElement = document.getElementById("api-status");
+
+        checkHealth()
+            .then(() => {
+                statusElement.textContent = "✅ Server erreichbar";
+                statusElement.classList.add("ok");
+            })
+            .catch(() => {
+                statusElement.textContent = "❌ Server nicht erreichbar. Läuft das Backend?";
+                statusElement.classList.add("error");
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="nav-brand">📖 Journal</span>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="journal.html">Heute</a>
+            <a href="calendar.html" class="active">Kalender</a>
+            <a href="habits.html">Habits</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="achievements.html">Achievements</a>
+            <button id="logout-button" class="nav-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Kalender</h1>
+
+        <section class="card">
+            <div class="calendar-header">
+                <button type="button" class="button" id="prev-month">‹</button>
+                <h2 id="month-heading"></h2>
+                <button type="button" class="button" id="next-month">›</button>
+            </div>
+
+            <div class="calendar-grid" id="calendar-weekdays"></div>
+            <div class="calendar-grid" id="calendar-days"></div>
+
+            <p class="muted calendar-legend">
+                😢 😕 😐 🙂 😄 = Stimmung des Tages ·
+                Klick auf einen Tag öffnet den Eintrag.
+            </p>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initCalendarPage } from "./js/calendar.js";
+        initCalendarPage();
+    </script>
+</body>
+</html>

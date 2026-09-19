@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrieren – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <main class="auth-page">
+        <div class="card auth-card">
+            <h1>📖 Konto erstellen</h1>
+            <p class="muted">Dein persönliches Journal – privat und nur für dich.</p>
+
+            <form id="register-form" class="form">
+                <label>
+                    E-Mail
+                    <input type="email" name="email" required autocomplete="email">
+                </label>
+                <label>
+                    Benutzername
+                    <input type="text" name="username" required minlength="3" maxlength="50" autocomplete="username">
+                </label>
+                <label>
+                    Passwort <span class="muted">(mind. 8 Zeichen)</span>
+                    <input type="password" name="password" required minlength="8" autocomplete="new-password">
+                </label>
+                <button type="submit" class="button button-primary">Registrieren</button>
+            </form>
+
+            <p class="muted">Schon ein Konto? <a href="login.html">Anmelden</a></p>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initRegisterPage } from "./js/auth.js";
+        initRegisterPage();
+    </script>
+</body>
+</html>

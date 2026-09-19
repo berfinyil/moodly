@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <main class="auth-page">
+        <div class="card auth-card">
+            <h1>📖 Willkommen zurück</h1>
+            <p class="muted">Melde dich an, um weiterzuschreiben.</p>
+
+            <form id="login-form" class="form">
+                <label>
+                    E-Mail
+                    <input type="email" name="email" required autocomplete="email">
+                </label>
+                <label>
+                    Passwort
+                    <input type="password" name="password" required autocomplete="current-password">
+                </label>
+                <button type="submit" class="button button-primary">Anmelden</button>
+            </form>
+
+            <p class="muted">Noch kein Konto? <a href="register.html">Registrieren</a></p>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initLoginPage } from "./js/auth.js";
+        initLoginPage();
+    </script>
+</body>
+</html>

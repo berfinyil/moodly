@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics – Moodly</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <span class="nav-brand">📖 Journal</span>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="journal.html">Heute</a>
+            <a href="calendar.html">Kalender</a>
+            <a href="habits.html">Habits</a>
+            <a href="analytics.html" class="active">Analytics</a>
+            <a href="achievements.html">Achievements</a>
+            <button id="logout-button" class="nav-logout">Logout</button>
+        </div>
+    </nav>
+
+    <main class="page page-wide">
+        <h1>Analytics</h1>
+        <p class="muted" id="data-level-hint"></p>
+
+        <section class="card-grid">
+            <div class="card stat-card">
+                <span class="stat-label">Einträge gesamt</span>
+                <span class="stat-value" id="stat-total">–</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Ø Stimmung (7 Tage)</span>
+                <span class="stat-value" id="stat-mood7">–</span>
+            </div>
+            <div class="card stat-card">
+                <span class="stat-label">Sporttage (30 Tage)</span>
+                <span class="stat-value" id="stat-sport30">–</span>
+            </div>
+        </section>
+
+        <section class="card chart-card">
+            <h2>Stimmungsverlauf (30 Tage)</h2>
+            <div class="chart-container">
+                <canvas id="mood-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="card chart-card">
+            <h2>Stimmung pro Wochentag</h2>
+            <p class="muted" id="weekday-hint"></p>
+            <div class="chart-container">
+                <canvas id="weekday-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="card chart-card">
+            <h2>Sport und Stimmung</h2>
+            <p class="muted" id="sport-statement"></p>
+            <div class="chart-container chart-small">
+                <canvas id="sport-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="card chart-card">
+            <h2>Habit-Erfolgsquote (30 Tage)</h2>
+            <div class="chart-container chart-small">
+                <canvas id="habit-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="card chart-card">
+            <h2>Häufigste Emotionen (30 Tage)</h2>
+            <div class="chart-container">
+                <canvas id="emotion-chart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initAnalyticsPage } from "./js/analytics.js";
+        initAnalyticsPage();
+    </script>
+</body>
+</html>

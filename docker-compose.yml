@@ -1,0 +1,32 @@
+# Local production-like stack: PostgreSQL + backend.
+# Start with:  docker compose up --build
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: moodly
+      POSTGRES_PASSWORD: moodly
+      POSTGRES_DB: moodly
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U moodly"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://moodly:moodly@db:5432/moodly
+      SECRET_KEY: ${SECRET_KEY:?Bitte SECRET_KEY setzen, z. B. per .env im Projektwurzelverzeichnis}
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
+      ENVIRONMENT: production
+      CORS_ORIGINS: http://localhost:3000
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:
